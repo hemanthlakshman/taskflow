@@ -1,0 +1,21 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>TaskFlow - Task List</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'tasks/task_list.css' %}">
+</head>
+<body>
+    <h1>Task List</h1>
+    <ul id="task-list">
+        {% for task in tasks %}
+        <li>
+            <input type="checkbox" {% if task.completed %} checked {% endif %}>{{ task.title }}
+        </li>
+        {% empty %}
+        <li>No tasks yet.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
